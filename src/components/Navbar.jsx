@@ -2,7 +2,11 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import { Linkedin, Github, Mail, Phone } from 'lucide-react';
+import { 
+  Linkedin,
+  Mail, 
+  Phone 
+} from 'lucide-react';
 
 const navLinks = [
   { name: 'Home', path: '/' },
@@ -78,32 +82,17 @@ const Navbar = () => {
             
             <span className="text-gray-400">•</span>
             
-            {/* Social Links */}
-            <div className="flex items-center space-x-4">
-              <a 
-                href="https://www.linkedin.com/in/sophie-yuen-180357297" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="flex items-center text-gray-700 hover:text-black transition-colors whitespace-nowrap text-xs lg:text-sm"
-                title="LinkedIn Profile"
-              >
-                <Linkedin className="w-4 h-4 mr-1 flex-shrink-0 lg:hidden" />
-                <span className="hidden lg:inline">linkedin.com/in/sophie-yuen</span>
-              </a>
-              
-              <span className="text-gray-400">•</span>
-              
-              <a 
-                href="https://github.com/happyface3650" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="flex items-center text-gray-700 hover:text-black transition-colors whitespace-nowrap text-xs lg:text-sm"
-                title="GitHub Profile"
-              >
-                <Github className="w-4 h-4 mr-1 flex-shrink-0 lg:hidden" />
-                <span className="hidden lg:inline">github.com/happyface3650</span>
-              </a>
-            </div>
+            {/* LinkedIn Link */}
+            <a 
+              href="https://www.linkedin.com/in/sophie-yuen-180357297" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center text-gray-700 hover:text-black transition-colors whitespace-nowrap text-xs lg:text-sm"
+              title="LinkedIn Profile"
+            >
+              <Linkedin className="w-4 h-4 mr-1 flex-shrink-0 lg:hidden" />
+              <span className="hidden lg:inline">linkedin.com/in/sophie-yuen</span>
+            </a>
           </div>
         </div>
 

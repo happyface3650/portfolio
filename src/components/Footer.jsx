@@ -1,8 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { 
-  LinkedinIcon, 
-  GithubIcon
+  LinkedinIcon
 } from 'lucide-react';
 
 const Footer = () => {
@@ -41,16 +40,6 @@ const Footer = () => {
                 >
                   <LinkedinIcon className="w-4 h-4" />
                   <span>LinkedIn</span>
-                </a>
-                <a 
-                  href="https://github.com/happyface3650" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="hover:text-primary-600 dark:hover:text-primary-400 transition-colors flex items-center gap-1"
-                  aria-label="GitHub"
-                >
-                  <GithubIcon className="w-4 h-4" />
-                  <span>GitHub</span>
                 </a>
               </div>
             </div>

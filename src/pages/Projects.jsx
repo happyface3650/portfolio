@@ -1,7 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { CodeBracketIcon, ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline';
-import { TrophyIcon } from '@heroicons/react/24/solid';
 
 // F1-themed components
 const CheckeredFlag = ({ className = '' }) => (
@@ -80,33 +78,7 @@ const Projects = () => {
               transition={{ delay: index * 0.1 }}
             >
               <div className="p-6 w-full">
-                <div className="flex justify-between items-start mb-4">
-                  <h3 className="text-xl font-bold text-navy-800">{project.title}</h3>
-                  <div className="flex space-x-3">
-                    {project.github && (
-                      <a 
-                        href={project.github} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="text-gray-600 hover:text-blue-600 transition-colors"
-                        title="View on GitHub"
-                      >
-                        <CodeBracketIcon className="w-5 h-5" />
-                      </a>
-                    )}
-                    {project.link && (
-                      <a 
-                        href={project.link} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="text-gray-600 hover:text-blue-600 transition-colors"
-                        title="View Live Demo"
-                      >
-                        <ArrowTopRightOnSquareIcon className="w-5 h-5" />
-                      </a>
-                    )}
-                  </div>
-                </div>
+                <h3 className="text-xl font-bold text-navy-800 mb-4">{project.title}</h3>
                 <p className="text-gray-700 mb-4">{project.description}</p>
                 <div className="flex flex-wrap gap-2 mt-6">
                   {project.tags.map((tag, tagIndex) => (
@@ -119,9 +91,8 @@ const Projects = () => {
                   ))}
                 </div>
                 {index === 1 && (
-                  <div className="mt-4 flex items-center text-xs text-blue-600 font-medium">
-                    <TrophyIcon className="w-4 h-4 mr-1" />
-                    <span>Featured Project</span>
+                  <div className="mt-4 text-xs text-blue-600 font-medium">
+                    Featured Project
                   </div>
                 )}
               </div>
