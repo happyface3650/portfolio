@@ -1,16 +1,76 @@
-# React + Vite
+# Sophie Yuen - Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to my personal portfolio website! This is a modern, responsive web application built with React and Vite, showcasing my professional experience, projects, and skills.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Responsive Design**: Looks great on all devices
+- **Modern UI**: Clean and professional interface with smooth animations
+- **Performance Optimized**: Built with Vite for fast development and production builds
+- **Interactive Elements**: Engaging user experience with Framer Motion animations
+- **Dark Mode**: Built-in dark mode support
 
-## React Compiler
+## 🛠️ Technologies Used
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- ⚛️ React 18
+- 🚀 Vite
+- 🎨 Tailwind CSS
+- ✨ Framer Motion
+- 🔄 React Router DOM
+- 📱 Responsive Design
+- 🎨 Hero Icons & Lucide Icons
 
-## Expanding the ESLint configuration
+## 🚀 Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Prerequisites
+
+- Node.js (v16 or later)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository
+   ```bash
+   git clone https://github.com/yourusername/portfolio.git
+   cd portfolio
+   ```
+
+2. Install dependencies
+   ```bash
+   npm install
+   # or
+   yarn
+   ```
+
+3. Start the development server
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+4. Open [http://localhost:5173](http://localhost:5173) to view it in your browser.
+
+## 📂 Project Structure
+
+```
+src/
+├── components/    # Reusable UI components
+├── pages/        # Page components
+├── context/      # React context providers
+└── assets/       # Static assets (images, etc.)
+```
+
+## 📝 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 📬 Contact
+
+- Email: s3yuen@uwaterloo.ca
+- Phone: +1 (647) 217-8720
+- LinkedIn: [linkedin.com/in/sophie-yuen-180357297](https://www.linkedin.com/in/sophie-yuen-180357297)
+
+---
+
+⭐ Feel free to fork this project and use it as a template for your own portfolio!
