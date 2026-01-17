@@ -58,52 +58,37 @@ const projects = [
 
 const Projects = () => {
   return (
-    <section className="min-h-screen bg-white py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-      {/* Decorative race track lines */}
-      <div className="absolute inset-x-0 top-0 h-2 bg-gradient-to-r from-red-600 via-yellow-400 to-red-600" />
-      <div className="absolute inset-x-0 bottom-0 h-2 bg-gradient-to-r from-red-600 via-yellow-400 to-red-600" />
-      <div className="absolute left-0 top-0 bottom-0 w-2 bg-gradient-to-b from-red-600 via-yellow-400 to-red-600" />
-      <div className="absolute right-0 top-0 bottom-0 w-2 bg-gradient-to-b from-red-600 via-yellow-400 to-red-600" />
-      
-      <div className="max-w-7xl mx-auto">
+    <section className="min-h-screen bg-white py-16 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto">
         <motion.div 
           className="text-center mb-12"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <div className="relative mb-8">
-            <div className="flex justify-center items-center mb-2">
-              <CheckeredFlag className="h-8 w-8 mr-3" />
-              <h2 className="text-4xl font-bold text-black font-racing">PROJECTS</h2>
-              <CheckeredFlag className="h-8 w-8 ml-3" />
-            </div>
-            <div className="h-1 bg-gradient-to-r from-transparent via-red-600 to-transparent opacity-50 mx-auto w-1/3" />
-          </div>
+          <h2 className="text-4xl font-bold text-navy-800 mb-4">Projects</h2>
+          <p className="text-gray-700 max-w-2xl mx-auto">A collection of my recent work and projects</p>
         </motion.div>
         <div className="space-y-6 w-full">
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              className="bg-white rounded-lg shadow-xl overflow-hidden border-2 border-gray-200 hover:border-red-600 transition-all duration-300 group relative z-10 w-full"
+              className="bg-white rounded-lg shadow-lg overflow-hidden border-l-4 border-navy-600 hover:shadow-xl hover:shadow-blue-600/20 transition-all duration-300 group relative z-10 w-full"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
             >
-              <div className="relative h-2 bg-gradient-to-r from-red-600 via-yellow-400 to-red-600">
-                <div className="absolute inset-0 bg-[linear-gradient(90deg,#0000_45%,#fff_50%,#0000_55%)] bg-[length:1rem_100%] opacity-30" />
-              </div>
               <div className="p-6 w-full">
                 <div className="flex justify-between items-start mb-4">
-                  <h3 className="text-xl font-bold text-black">{project.title}</h3>
-                  <div className="flex space-x-2">
+                  <h3 className="text-xl font-bold text-navy-800">{project.title}</h3>
+                  <div className="flex space-x-3">
                     {project.github && (
                       <a 
                         href={project.github} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="text-gray-600 hover:text-red-600 transition-colors"
+                        className="text-gray-600 hover:text-blue-600 transition-colors"
                         title="View on GitHub"
                       >
                         <CodeBracketIcon className="w-5 h-5" />
@@ -114,7 +99,7 @@ const Projects = () => {
                         href={project.link} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="text-gray-600 hover:text-red-600 transition-colors"
+                        className="text-gray-600 hover:text-blue-600 transition-colors"
                         title="View Live Demo"
                       >
                         <ArrowTopRightOnSquareIcon className="w-5 h-5" />
@@ -127,16 +112,16 @@ const Projects = () => {
                   {project.tags.map((tag, tagIndex) => (
                     <span 
                       key={tagIndex}
-                      className={`px-3 py-1 rounded-full text-xs font-medium border ${index === 1 ? 'bg-red-50 text-red-800 border-red-200' : 'bg-gray-100 text-gray-800 border-gray-200'}`}
+                      className="px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-navy-700 border border-blue-100 hover:bg-blue-100 transition-colors"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
                 {index === 1 && (
-                  <div className="mt-4 flex items-center text-xs text-red-600 font-medium">
+                  <div className="mt-4 flex items-center text-xs text-blue-600 font-medium">
                     <TrophyIcon className="w-4 h-4 mr-1" />
-                    <span>Featured F1 Project</span>
+                    <span>Featured Project</span>
                   </div>
                 )}
               </div>
@@ -149,11 +134,9 @@ const Projects = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <div className="inline-flex items-center text-sm text-gray-600">
-            <CheckeredFlag className="w-5 h-5 mr-2" />
-            <span className="text-red-600 font-bold">FLAG</span>
+          <p className="text-gray-600 text-sm">
             More projects coming soon...
-          </div>
+          </p>
         </motion.div>
       </div>
     </section>

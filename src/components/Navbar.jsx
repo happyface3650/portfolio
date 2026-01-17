@@ -1,24 +1,20 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useTheme } from '../context/ThemeContext';
-import { SunIcon, MoonIcon, Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import { Linkedin, Github, Mail, Phone } from 'lucide-react';
 
 const navLinks = [
   { name: 'Home', path: '/' },
   { name: 'About', path: '/about' },
   { name: 'Experience', path: '/experience' },
-  { name: 'Education', path: '/education' },
   { name: 'Projects', path: '/projects' },
-  { name: 'Wins', path: '/wins' },
-  { name: 'Shenanigans', path: '/shenanigans' },
   { name: 'Contact', path: '/contact' },
 ];
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const { theme, toggleTheme } = useTheme();
   const location = useLocation();
 
   // Handle scroll effect for navbar
@@ -45,21 +41,71 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   };
 
-  const toggleDarkMode = () => {
-    toggleTheme(theme === 'dark' ? 'light' : 'dark');
-  };
 
   return (
     <header 
       className={`fixed w-full z-50 transition-all duration-300 ${
         scrolled 
-          ? 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-md' 
+          ? 'bg-white shadow-md' 
           : 'bg-transparent'
       }`}
     >
-      <nav className="container mx-auto px-4 py-4 flex justify-end md:justify-between items-center text-black">
-        {/* Empty div for flex spacing on desktop */}
-        <div className="hidden md:block"></div>
+      <nav className="container mx-auto px-4 py-3 flex justify-between items-center text-black">
+        {/* Contact Links - Left Side */}
+        <div className="hidden md:flex items-center space-x-4 text-sm overflow-hidden">
+          <div className="flex items-center space-x-4">
+            {/* Phone - icon only on smaller screens */}
+            <a 
+              href="tel:+16472178720" 
+              className="flex items-center text-gray-700 hover:text-black transition-colors whitespace-nowrap"
+              title="+1 (647) 217-8720"
+            >
+              <Phone className="w-4 h-4 mr-1 flex-shrink-0" />
+              <span className="hidden lg:inline">+1 (647) 217-8720</span>
+            </a>
+            
+            <span className="text-gray-400">•</span>
+            
+            {/* Email - icon only on smaller screens */}
+            <a 
+              href="mailto:s3yuen@uwaterloo.ca" 
+              className="flex items-center text-gray-700 hover:text-black transition-colors whitespace-nowrap"
+              title="s3yuen@uwaterloo.ca"
+            >
+              <Mail className="w-4 h-4 mr-1 flex-shrink-0" />
+              <span className="hidden lg:inline">s3yuen@uwaterloo.ca</span>
+            </a>
+            
+            <span className="text-gray-400">•</span>
+            
+            {/* Social Links */}
+            <div className="flex items-center space-x-4">
+              <a 
+                href="https://www.linkedin.com/in/sophie-yuen-180357297" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center text-gray-700 hover:text-black transition-colors whitespace-nowrap text-xs lg:text-sm"
+                title="LinkedIn Profile"
+              >
+                <Linkedin className="w-4 h-4 mr-1 flex-shrink-0 lg:hidden" />
+                <span className="hidden lg:inline">linkedin.com/in/sophie-yuen</span>
+              </a>
+              
+              <span className="text-gray-400">•</span>
+              
+              <a 
+                href="https://github.com/happyface3650" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center text-gray-700 hover:text-black transition-colors whitespace-nowrap text-xs lg:text-sm"
+                title="GitHub Profile"
+              >
+                <Github className="w-4 h-4 mr-1 flex-shrink-0 lg:hidden" />
+                <span className="hidden lg:inline">github.com/happyface3650</span>
+              </a>
+            </div>
+          </div>
+        </div>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
@@ -70,14 +116,14 @@ const Navbar = () => {
               className={`relative px-2 py-1 text-sm font-medium transition-colors ${
                 location.pathname === link.path
                   ? 'text-black font-semibold'
-                  : 'text-gray-700 hover:text-black dark:text-gray-700 dark:hover:text-black'
+                  : 'text-gray-700 hover:text-black'
               }`}
             >
               {link.name}
               {location.pathname === link.path && (
                 <motion.span
                   layoutId="nav-underline"
-                  className="absolute left-0 -bottom-1 w-full h-0.5 bg-red-600"
+                  className="absolute left-0 -bottom-1 w-full h-0.5 bg-navy-800"
                   initial={false}
                   transition={{
                     type: 'spring',
@@ -89,36 +135,13 @@ const Navbar = () => {
             </Link>
           ))}
 
-          {/* Theme Toggle */}
-          <button
-            onClick={toggleDarkMode}
-            className="p-2 rounded-full text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800 transition-colors"
-            aria-label="Toggle dark mode"
-          >
-            {theme === 'dark' ? (
-              <SunIcon className="w-5 h-5" />
-            ) : (
-              <MoonIcon className="w-5 h-5" />
-            )}
-          </button>
         </div>
 
         {/* Mobile menu button */}
-        <div className="md:hidden flex items-center">
-          <button
-            onClick={toggleDarkMode}
-            className="p-2 mr-2 rounded-full text-gray-700 dark:text-gray-300 transition-colors"
-            aria-label="Toggle dark mode"
-          >
-            {theme === 'dark' ? (
-              <SunIcon className="w-6 h-6" />
-            ) : (
-              <MoonIcon className="w-6 h-6" />
-            )}
-          </button>
+        <div className="md:hidden">
           <button
             onClick={toggleMenu}
-            className="p-2 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none"
+            className="p-2 rounded-md text-gray-700 hover:bg-gray-100 focus:outline-none"
             aria-label="Toggle menu"
           >
             {isOpen ? (
@@ -147,8 +170,8 @@ const Navbar = () => {
                   to={link.path}
                   className={`block px-3 py-2 rounded-md text-base font-medium ${
                     location.pathname === link.path
-                      ? 'bg-primary-50 text-primary-600 dark:bg-gray-800 dark:text-primary-400'
-                      : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800'
+                      ? 'bg-gray-100 text-black font-semibold'
+                      : 'text-gray-700 hover:bg-gray-100 hover:text-black'
                   }`}
                 >
                   {link.name}
